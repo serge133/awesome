@@ -14,6 +14,8 @@ local globalKeys =
   -- Tag browsing
   awful.key({modkey}, 'w', awful.tag.viewprev, {description = 'view previous', group = 'tag'}),
   awful.key({modkey}, 's', awful.tag.viewnext, {description = 'view next', group = 'tag'}),
+  awful.key({altkey, 'Control'}, 'Up', awful.tag.viewprev, {description = 'view previous', group = 'tag'}),
+  awful.key({altkey, 'Control'}, 'Down', awful.tag.viewnext, {description = 'view next', group = 'tag'}),
   awful.key({modkey}, 'Escape', awful.tag.history.restore, {description = 'go back', group = 'tag'}),
   -- Default client focus
   awful.key(
@@ -34,7 +36,15 @@ local globalKeys =
   ),
   awful.key(
     {modkey},
-    'e',
+    'r',
+    function()
+      _G.screen.primary.left_panel:toggle(true)
+    end,
+    {description = 'show main menu', group = 'awesome'}
+  ),
+  awful.key(
+    {altkey},
+    'space',
     function()
       _G.screen.primary.left_panel:toggle(true)
     end,
@@ -42,15 +52,28 @@ local globalKeys =
   ),
   awful.key({modkey}, 'u', awful.client.urgent.jumpto, {description = 'jump to urgent client', group = 'client'}),
   awful.key(
-    {modkey},
+    {altkey},
     'Tab',
     function()
-      awful.client.focus.history.previous()
+      --awful.client.focus.history.previous()
+      awful.client.focus.byidx(1)
       if _G.client.focus then
         _G.client.focus:raise()
       end
     end,
-    {description = 'go back', group = 'client'}
+    {description = 'Switch to next window', group = 'client'}
+  ),
+  awful.key(
+    {altkey, 'Shift'},
+    'Tab',
+    function()
+      --awful.client.focus.history.previous()
+      awful.client.focus.byidx(-1)
+      if _G.client.focus then
+        _G.client.focus:raise()
+      end
+    end,
+    {description = 'Switch to previous window', group = 'client'}
   ),
   -- Programms
   awful.key(
@@ -58,14 +81,48 @@ local globalKeys =
     'l',
     function()
       awful.spawn(apps.default.lock)
-    end
+    end,
+    {description = 'Lock the screen', group = 'awesome'}
+  ),
+  awful.key(
+    {modkey},
+    'Print',
+    function()
+      awful.util.spawn_with_shell(apps.default.delayed_screenshot)
+    end,
+    {description = 'Mark an area and screenshot it 10 seconds later (clipboard)', group = 'screenshots (clipboard)'}
   ),
   awful.key(
     {},
     'Print',
     function()
-      awful.util.spawn_with_shell('maim -s | xclip -selection clipboard -t image/png')
-    end
+      awful.util.spawn_with_shell(apps.default.screenshot)
+    end,
+    {description = 'Take a screenshot of your active monitor and copy it to clipboard', group = 'screenshots (clipboard)'}
+  ),
+  awful.key(
+    {'Control'},
+    'Print',
+    function()
+      awful.util.spawn_with_shell(apps.default.region_screenshot)
+    end,
+    {description = 'Mark an area and screenshot it to your clipboard', group = 'screenshots (clipboard)'}
+  ),
+  awful.key(
+    {modkey},
+    'c',
+    function()
+      awful.util.spawn(apps.default.editor)
+    end,
+    {description = 'open a text/code editor', group = 'launcher'}
+  ),
+  awful.key(
+    {modkey},
+    'b',
+    function()
+      awful.util.spawn(apps.default.browser)
+    end,
+    {description = 'open a browser', group = 'launcher'}
   ),
   -- Standard program
   awful.key(
@@ -158,14 +215,14 @@ local globalKeys =
   -- Dropdown application
   awful.key(
     {modkey},
-    '`',
+    'z',
     function()
       _G.toggle_quake()
     end,
     {description = 'dropdown application', group = 'launcher'}
   ),
   -- Widgets popups
-  awful.key(
+  --[[awful.key(
     {altkey},
     'h',
     function()
@@ -184,7 +241,7 @@ local globalKeys =
       end
     end,
     {description = 'show weather', group = 'widgets'}
-  ),
+  ),--]]
   -- Brightness
   awful.key(
     {},
@@ -250,6 +307,37 @@ local globalKeys =
       _G.exit_screen_show()
     end,
     {description = 'toggle mute', group = 'hotkeys'}
+  ),
+  -- Screen management
+  awful.key(
+    {modkey},
+    'o',
+    awful.client.movetoscreen,
+    {description = 'move window to next screen', group = 'client'}
+  ),
+  -- Open default program for tag
+  awful.key(
+    {modkey},
+    't',
+    function()
+      awful.spawn(
+          awful.screen.focused().selected_tag.defaultApp,
+          {
+            tag = _G.mouse.screen.selected_tag,
+            placement = awful.placement.bottom_right
+          }
+        )
+    end,
+    {description = 'open default program for tag/workspace', group = 'tag'}
+  ),
+  -- Custom hotkeys
+  -- vfio integration
+  awful.key(
+    {'Control',altkey},
+    'space',
+    function()
+      awful.util.spawn_with_shell('vm-attach attach')
+    end
   )
 )
 
