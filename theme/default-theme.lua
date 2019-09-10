@@ -24,8 +24,8 @@ local awesome_overrides =
   --theme.dir             = os.getenv("HOME") .. "/code/awesome-pro/themes/pro-dark"
 
   theme.icons = theme.dir .. '/icons/'
-  --theme.wallpaper = theme.dir .. '/wallpapers/pro-dark-shadow.png'
-  theme.wallpaper = '#e0e0e0'
+  theme.wallpaper = theme.dir .. '/wallpapers/DarkCyan.png'
+  --theme.wallpaper = '#e0e0e0'
   theme.font = 'Roboto medium 10'
   theme.title_font = 'Roboto medium 14'
 
