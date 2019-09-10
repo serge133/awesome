@@ -21,7 +21,6 @@ theme.background = mat_colors.grey
 local awesome_overrides =
   function(theme)
   theme.dir = os.getenv('HOME') .. '/.config/awesome/theme'
-  --theme.dir             = os.getenv("HOME") .. "/code/awesome-pro/themes/pro-dark"
 
   theme.icons = theme.dir .. '/icons/'
   theme.wallpaper = theme.dir .. '/wallpapers/DarkCyan.png'
