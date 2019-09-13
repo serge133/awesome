@@ -20,6 +20,7 @@ return function(screen, panel, action_bar_width)
   local month_calendar = awful.widget.calendar_popup.month({
     screen = s,
     start_sunday = false,
+    week_numbers = true
   })
   month_calendar:attach(textclock)
 
