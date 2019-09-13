@@ -9,7 +9,6 @@
 # List of applications to run
 APPS=(
     keepassxc
-    synergy
     kdeconnect-indicator
     radeon-profile
     /home/hk/.appimage/Nextcloud-2.5.3-x86_64_281f7633aa2d333033540d71b1d66bf7.AppImage
