@@ -137,7 +137,7 @@ local globalKeys =
   awful.key({modkey, 'Control'}, 'q', _G.awesome.quit, {description = 'quit awesome', group = 'awesome'}),
   awful.key(
     {altkey, 'Shift'},
-    'l',
+    'Right',
     function()
       awful.tag.incmwfact(0.05)
     end,
@@ -145,15 +145,31 @@ local globalKeys =
   ),
   awful.key(
     {altkey, 'Shift'},
-    'h',
+    'Left',
     function()
       awful.tag.incmwfact(-0.05)
     end,
     {description = 'decrease master width factor', group = 'layout'}
   ),
   awful.key(
+    {altkey, 'Shift'},
+    'Down',
+    function()
+      awful.client.incwfact(0.05)
+    end,
+    {description = 'decrease master height factor', group = 'layout'}
+  ),
+  awful.key(
+    {altkey, 'Shift'},
+    'Up',
+    function()
+      awful.client.incwfact(-0.05)
+    end,
+    {description = 'increase master height factor', group = 'layout'}
+  ),
+  awful.key(
     {modkey, 'Shift'},
-    'h',
+    'Left',
     function()
       awful.tag.incnmaster(1, nil, true)
     end,
@@ -161,7 +177,7 @@ local globalKeys =
   ),
   awful.key(
     {modkey, 'Shift'},
-    'l',
+    'Right',
     function()
       awful.tag.incnmaster(-1, nil, true)
     end,
@@ -169,7 +185,7 @@ local globalKeys =
   ),
   awful.key(
     {modkey, 'Control'},
-    'h',
+    'Left',
     function()
       awful.tag.incncol(1, nil, true)
     end,
@@ -177,7 +193,7 @@ local globalKeys =
   ),
   awful.key(
     {modkey, 'Control'},
-    'l',
+    'Right',
     function()
       awful.tag.incncol(-1, nil, true)
     end,
