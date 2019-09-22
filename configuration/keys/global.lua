@@ -354,6 +354,15 @@ local globalKeys =
     function()
       awful.util.spawn_with_shell('vm-attach attach')
     end
+  ),
+  -- Emoji picker
+  awful.key(
+    {modkey},
+    'e',
+    function()
+      awful.util.spawn_with_shell('ibus emoji')
+    end,
+    {description = 'Open the ibus emoji picker to copy an emoji to your clipboard', group = 'hotkeys'}
   )
 )
 
