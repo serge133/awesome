@@ -11,7 +11,7 @@ APPS=(
     keepassxc
     kdeconnect-indicator
     radeon-profile
-    $HOME/.appimage/Nextcloud-2.5.3-x86_64_281f7633aa2d333033540d71b1d66bf7.AppImage
+    $HOME/.appimage/Nextcloud-2.6.0-x86_64_1b1ce82c5926d8d950b6047391bf66a5.AppImage
     )
 
 # Some applications start child applications that need to be killed on reload
