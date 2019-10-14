@@ -32,6 +32,6 @@ done
 # Start new instances
 for app in "${APPS[@]}"
 do
-    $app ${@:2} &
+    env $app ${@:2} &
 done
 
