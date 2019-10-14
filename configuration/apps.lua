@@ -18,7 +18,7 @@ return {
     
     -- Editing these also edits the default program
     -- associated with each tag/workspace
-    browser = 'env brave-browser',
+    browser = 'env vivaldi',
     editor = 'code', -- gui text editor
     social = 'env discord-web',
     game = rofi_command,
