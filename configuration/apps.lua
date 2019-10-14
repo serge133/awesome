@@ -3,7 +3,7 @@ local filesystem = require('gears.filesystem')
 -- Thanks to jo148 on github for making rofi dpi aware!
 local with_dpi = require('beautiful').xresources.apply_dpi
 local get_dpi = require('beautiful').xresources.get_dpi
-local rofi_command = 'rofi -dpi ' .. get_dpi() .. ' -width ' .. with_dpi(400) .. ' -show drun -theme ' .. filesystem.get_configuration_dir() .. '/configuration/rofi.rasi'
+local rofi_command = 'env rofi -dpi ' .. get_dpi() .. ' -width ' .. with_dpi(400) .. ' -show drun -theme ' .. filesystem.get_configuration_dir() .. '/configuration/rofi.rasi'
 
 return {
   -- List of apps to start by default on some actions
@@ -18,9 +18,9 @@ return {
     
     -- Editing these also edits the default program
     -- associated with each tag/workspace
-    browser = 'firefox',
+    browser = 'env brave-browser',
     editor = 'code', -- gui text editor
-    social = 'discord',
+    social = 'env discord-web',
     game = rofi_command,
     files = 'nautilus',
     music = rofi_command
