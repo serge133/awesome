@@ -20,7 +20,7 @@ return {
     -- associated with each tag/workspace
     browser = 'env vivaldi',
     editor = 'code', -- gui text editor
-    social = 'env discord-web',
+    social = 'env discord',
     game = rofi_command,
     files = 'nautilus',
     music = rofi_command
