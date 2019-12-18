@@ -7,11 +7,15 @@
 #  (if you want to apply parameters then use a script file!)
 
 # List of applications to run
+# the script $HOME/.config/awesomestart
+# is intended to be a copy of this file
+# to allow out of tree autostart programs
 APPS=(
     keepassxc
     kdeconnect-indicator
     radeon-profile
     $(ls $HOME/.appimage/Nextcloud*)
+    $HOME/.config/awesomestart
     )
 
 # Some applications start child applications that need to be killed on reload
