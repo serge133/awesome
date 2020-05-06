@@ -124,6 +124,15 @@ local globalKeys =
     end,
     {description = 'open a browser', group = 'launcher'}
   ),
+  -- Open private browser/brave
+  awful.key(
+    {modkey},
+    'p',
+    function()
+      awful.util.spawn_with_shell('brave')
+    end,
+    {description = 'Open Brave', group = 'launcher'}
+  ),
   -- Standard program
   awful.key(
     {modkey},
