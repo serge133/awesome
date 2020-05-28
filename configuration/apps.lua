@@ -8,10 +8,10 @@ local rofi_command = 'env /usr/bin/rofi -dpi ' .. get_dpi() .. ' -width ' .. wit
 return {
   -- List of apps to start by default on some actions
   default = {
-    terminal = 'gnome-terminal',
+    terminal = 'alacritty',
     rofi = rofi_command,
     lock = 'i3lock-fancy',
-    quake = 'gnome-terminal',
+    quake = 'alacritty',
     screenshot = '~/.config/awesome/configuration/utils/screenshot -m',
     region_screenshot = '~/.config/awesome/configuration/utils/screenshot -r',
     delayed_screenshot = 'sleep 10 ; ~/.config/awesome/configuration/utils/screenshot -r',
