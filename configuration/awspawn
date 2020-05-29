@@ -14,13 +14,14 @@ APPS=(
     keepassxc
     kdeconnect-indicator
     radeon-profile
-    $(ls $HOME/.appimage/Nextcloud*)
+    /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=nextcloud org.nextcloud.Nextcloud
     $HOME/.config/awesomestart
     )
 
 # Some applications start child applications that need to be killed on reload
 KILL=(
     synergyc
+    nextcloud
     )
 
 # First kill lingering apps
