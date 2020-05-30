@@ -14,7 +14,6 @@ APPS=(
     keepassxc
     kdeconnect-indicator
     radeon-profile
-    /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=nextcloud org.nextcloud.Nextcloud
     $HOME/.config/awesomestart
     )
 
