@@ -138,7 +138,7 @@ local globalKeys =
     {modkey},
     'x',
     function()
-      awful.spawn(apps.default.terminal)
+      awful.util.spawn_with_shell(apps.default.terminal)
     end,
     {description = 'open a terminal', group = 'launcher'}
   ),
