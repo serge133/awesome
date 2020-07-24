@@ -80,23 +80,16 @@ local globalKeys =
     {modkey},
     'l',
     function()
-      awful.spawn(apps.default.lock)
+  	-- apps.default.lock
+      awful.spawn('i3lock -c 171717')
     end,
     {description = 'Lock the screen', group = 'awesome'}
-  ),
-  awful.key(
-    {modkey},
-    'Print',
-    function()
-      awful.util.spawn_with_shell(apps.default.delayed_screenshot)
-    end,
-    {description = 'Mark an area and screenshot it 10 seconds later (clipboard)', group = 'screenshots (clipboard)'}
   ),
   awful.key(
     {},
     'Print',
     function()
-      awful.util.spawn_with_shell(apps.default.screenshot)
+      awful.spawn('flameshot gui')
     end,
     {description = 'Take a screenshot of your active monitor and copy it to clipboard', group = 'screenshots (clipboard)'}
   ),
@@ -112,7 +105,7 @@ local globalKeys =
     {modkey},
     'c',
     function()
-      awful.util.spawn(apps.default.editor)
+      awful.util.spawn('code')
     end,
     {description = 'open a text/code editor', group = 'launcher'}
   ),
@@ -120,25 +113,34 @@ local globalKeys =
     {modkey},
     'b',
     function()
-      awful.util.spawn(apps.default.browser)
+      awful.util.spawn('firefox-developer-edition')
     end,
     {description = 'open a browser', group = 'launcher'}
   ),
-  -- Open private browser/brave
+  -- Open private browser
   awful.key(
     {modkey},
     'p',
     function()
-      awful.util.spawn_with_shell('brave-browser')
+      awful.util.spawn_with_shell('firefox-developer-edition --private-window')
     end,
-    {description = 'Open Brave', group = 'launcher'}
+    {description = 'Open Private Browser', group = 'launcher'}
+  ),
+  -- Open File Explorer
+  awful.key(
+    {modkey},
+    'e',
+    function()
+      awful.util.spawn_with_shell('nautilus')
+    end,
+    {description = 'Open Private Browser', group = 'launcher'}
   ),
   -- Standard program
   awful.key(
     {modkey},
     'x',
     function()
-      awful.util.spawn_with_shell(apps.default.terminal)
+      awful.util.spawn_with_shell('terminator')
     end,
     {description = 'open a terminal', group = 'launcher'}
   ),
