@@ -75,7 +75,7 @@ local globalKeys =
     end,
     {description = 'Switch to previous window', group = 'client'}
   ),
-  -- Programms
+  -- Programs
   awful.key(
     {modkey},
     'l',
@@ -91,7 +91,7 @@ local globalKeys =
     function()
       awful.spawn('flameshot gui')
     end,
-    {description = 'Take a screenshot of your active monitor and copy it to clipboard', group = 'screenshots (clipboard)'}
+    {description = 'Take a screenshot of your active monitor', group = 'screenshots (clipboard)'}
   ),
   awful.key(
     {'Control'},
@@ -122,7 +122,7 @@ local globalKeys =
     {modkey},
     'p',
     function()
-      awful.util.spawn_with_shell('firefox-developer-edition --private-window')
+      awful.util.spawn('firefox-developer-edition --private-window')
     end,
     {description = 'Open Private Browser', group = 'launcher'}
   ),
@@ -131,7 +131,7 @@ local globalKeys =
     {modkey},
     'e',
     function()
-      awful.util.spawn_with_shell('nautilus')
+      awful.util.spawn('nautilus -w')
     end,
     {description = 'Open Private Browser', group = 'launcher'}
   ),
@@ -140,7 +140,7 @@ local globalKeys =
     {modkey},
     'x',
     function()
-      awful.util.spawn_with_shell('terminator')
+      awful.util.spawn('terminator')
     end,
     {description = 'open a terminal', group = 'launcher'}
   ),
