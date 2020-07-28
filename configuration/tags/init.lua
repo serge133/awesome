@@ -7,19 +7,19 @@ local tags = {
   {
     icon = icons.chrome,
     type = 'chrome',
-    defaultApp = apps.default.browser,
+    defaultApp = 'chromium',
     screen = 1
   },
   {
     icon = icons.code,
     type = 'code',
-    defaultApp = apps.default.editor,
+    defaultApp = 'code',
     screen = 1
   },
   {
     icon = icons.social,
     type = 'social',
-    defaultApp = apps.default.social,
+    defaultApp = 'telegram-desktop',
     screen = 1
   },
   {
@@ -31,19 +31,19 @@ local tags = {
   {
     icon = icons.folder,
     type = 'files',
-    defaultApp = apps.default.files,
+    defaultApp = 'nautilus',
     screen = 1
   },
   {
     icon = icons.music,
     type = 'music',
-    defaultApp = apps.default.music,
+    defaultApp = 'pavucontrol',
     screen = 1
   },
   {
     icon = icons.lab,
     type = 'any',
-    defaultApp = apps.default.rofi,
+    defaultApp = 'gnome-system-monitor',
     screen = 1
   }
 }
@@ -51,7 +51,9 @@ local tags = {
 awful.layout.layouts = {
   awful.layout.suit.tile,
   awful.layout.suit.max,
-  awful.layout.suit.floating
+  awful.layout.suit.floating,
+  -- Fibonacci
+  -- awful.layout.suit.spiral
 }
 
 awful.screen.connect_for_each_screen(

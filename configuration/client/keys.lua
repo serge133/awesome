@@ -7,7 +7,7 @@ local clientKeys =
   awful.util.table.join(
   awful.key(
     {modkey},
-    'f',
+    'm',
     function(c)
       c.fullscreen = not c.fullscreen
       c:raise()

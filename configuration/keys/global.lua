@@ -81,7 +81,7 @@ local globalKeys =
     'l',
     function()
   	-- apps.default.lock
-      awful.spawn('i3lock -c 171717')
+      awful.spawn('i3lock -c 171717 -e')
     end,
     {description = 'Lock the screen', group = 'awesome'}
   ),
@@ -113,23 +113,23 @@ local globalKeys =
     {modkey},
     'b',
     function()
-      awful.util.spawn('firefox-developer-edition')
+      awful.util.spawn('chromium')
     end,
     {description = 'open a browser', group = 'launcher'}
   ),
   -- Open private browser
   awful.key(
     {modkey},
-    'p',
+    'n',
     function()
-      awful.util.spawn('firefox-developer-edition --private-window')
+      awful.util.spawn('chromium -incognito')
     end,
     {description = 'Open Private Browser', group = 'launcher'}
   ),
   -- Open File Explorer
   awful.key(
     {modkey},
-    'e',
+    'f',
     function()
       awful.util.spawn('nautilus -w')
     end,
@@ -138,9 +138,9 @@ local globalKeys =
   -- Standard program
   awful.key(
     {modkey},
-    'x',
+    't',
     function()
-      awful.util.spawn('terminator')
+      awful.util.spawn('alacritty')
     end,
     {description = 'open a terminal', group = 'launcher'}
   ),
@@ -345,7 +345,7 @@ local globalKeys =
   -- Open default program for tag
   awful.key(
     {modkey},
-    't',
+    'p',
     function()
       awful.spawn(
           awful.screen.focused().selected_tag.defaultApp,
@@ -370,7 +370,7 @@ local globalKeys =
   -- setup info at https://gist.github.com/HikariKnight/8562837d28dec3674dba027c7892e6a5
   awful.key(
     {modkey},
-    'e',
+    'j',
     function()
       awful.util.spawn_with_shell('emoji-toggle')
     end,
